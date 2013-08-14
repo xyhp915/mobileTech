@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title> Demo | 不添加视窗标签时的表现</title>
+        <style type="text/css">
+            /* Structure */
+            #wrapper {
+              width: 96%;
+              max-width: 920px;
+              margin: auto;
+              padding: 2%;
+            }
+            #main {
+              width: 60%;
+              margin-right: 5%;
+              float: left;
+            }
+            aside {
+              width: 35%;
+              float: right;
+            }
+            /* Logo H1 */
+            header h1 {
+              height: 107px;
+              width: 249px;
+              float: left;
+              display: block;
+              background: url(images/logo.png) 0 0 no-repeat;
+              text-indent: -9999px;
+            }
+            /* Nav */
+            header nav {
+              float: right;
+              margin-top: 40px;
+            }
+            header nav ul{
+                margin: 0;
+                padding: 0;
+            }
+            header nav li {
+              display: inline;
+              margin-left: 15px;
+            }
+            #skipTo {
+              display: none;
+            }
+            #skipTo li {
+              background: #b1fffc;
+            }
+            /* Banner */
+            #banner {
+              float: left;
+              margin-bottom: 15px;
+              width: 100%;
+            }
+            #banner img {
+              width: 100%;
+            }   
+            /* Media Queries */
+            @media screen and (max-width: 480px) {
+              #skipTo {
+                display: block;
+                float: none;
+              }
+              header nav, #main, aside {
+                float: left;
+                clear: left;
+                margin: 0 0 10px;
+                width: 100%;
+              }
+              header h1{
+                margin-left: auto;
+                margin-right: auto;
+                float: none;
+              }
+              header nav li {
+                margin: 0;
+                background: #efefef;
+                display: block;
+                margin-bottom: 3px;
+              }
+              header nav a {
+                display: block;
+                padding: 10px;
+                text-align: center;
+              }
+            }
+        </style>
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <nav id="skipTo">
+                    <ul>
+                    <li>
+                    <a href="#main" title="Skip to Main Content">Skip to Main Content</a>
+                    </li>
+                    </ul>
+                </nav>
+                <h1>Demo</h1>
+                <nav>
+                <ul>
+                    <li><a href="#" title="Home">Home</a></li>
+                    <li><a href="#" title="About">About</a></li>
+                    <li><a href="#" title="Work">Work</a></li>
+                    <li><a href="#" title="Contact">Contact</a></li>
+                </ul>
+                </nav>
+                <div id="banner">
+                    <img src="images/banner.jpg" alt="banner" />
+                </div>
+            </header>
+            <section id="main">
+                <h2>Main section</h2>
+                <p>Lorem…</p>
+            </section>
+            <aside>
+                <h2>Sub-section</h2>
+                <p>Lorem …</p>
+            </aside>
+        </div>
+    </body>
+</html>	
