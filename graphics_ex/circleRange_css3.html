@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://zythum.free.bg/circlerange/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<title>circleRange</title>
+	<style type="text/css" media="screen">
+		*{margin:0;padding:0}
+		#out{
+			width:300px;
+			height:300px;
+			border-radius:150px;
+			position:relative;
+			overflow:hidden;
+			background:#eee;
+			box-shadow:0 0 3px #aaa inset;
+			border:1px solid #aaa;
+		}
+		#out-left{
+			position:absolute;
+			width:50%;
+			left:0;top:0;bottom:0;
+			overflow:hidden;
+		}
+		#range-left{
+			width:200%;
+			height:100%;
+			-webkit-transform:rotate(0deg);
+			-moz-transform:rotate(0deg);
+			-o-transform:rotate(0deg);
+			transform:rotate(0deg);
+			/*-webkit-transition:-webkit-transform 0.5s linear;*/
+			position:absolute;
+			top:0;left:0;
+			border-radius:150px;
+			background:-webkit-linear-gradient(left,transparent 0%,transparent 50%,red 50%,red 100%);
+			background:-moz-linear-gradient(left,transparent 0%,transparent 50%,red 50%,red 100%);
+			background:-o-linear-gradient(left,transparent 0%,transparent 50%,red 50%,red 100%);
+			background:linear-gradient(left,transparent 0%,transparent 50%,red 50%,red 100%);
+		}
+		#out-right{
+			position:absolute;
+			width:50%;
+			right:0;top:0;bottom:0;
+			overflow:hidden;
+		}
+		#range-right{
+			width:200%;
+			height:100%;
+			-webkit-transform:rotate(0deg);
+			-moz-transform:rotate(0deg);
+			-o-transform:rotate(0deg);
+			transform:rotate(0deg);
+			/*-webkit-transition:-webkit-transform 0.5s linear;*/
+			position:absolute;
+			top:0;right:0;
+			border-radius:150px;
+			background:-webkit-linear-gradient(right,transparent 0%,transparent 50%,red 50%,red 100%);
+			background:-moz-linear-gradient(right,transparent 0%,transparent 50%,red 50%,red 100%);
+			background:-o-linear-gradient(right,transparent 0%,transparent 50%,red 50%,red 100%);
+			background:linear-gradient(right,transparent 0%,transparent 50%,red 50%,red 100%);
+		}
+		#out-center{
+			position:absolute;
+			top:10px;left:10px;right:10px;bottom:10px;
+			border-radius:140px;
+			background:#fff;
+			box-shadow:0 0 3px #aaa;
+			border:1px solid #aaa;
+		}
+		#input{
+			border:0px;
+			outline:none;
+			height:30px;
+			width:70px;
+			font-size:20px;
+			margin-left:110px;
+			margin-top:30px;
+		}
+	</style>
+<style type="text/css"></style></head>
+<body>
+	<div id="out">
+		<div id="out-left">
+			<div id="range-left" style="-webkit-transform: rotate(0deg);"></div>
+		</div>
+		<div id="out-right">
+			<div id="range-right" style="-webkit-transform: rotate(134deg);"></div>
+		</div>
+		<div id="input-out">
+			<div id="out-center"></div>
+		</div>
+	</div>
+	<input id="input" type="number" value="120">
+	
+	<script type="text/javascript">
+	var l = document.getElementById('range-left'),
+		r = document.getElementById('range-right'),
+		i = document.getElementById('input'),
+		set = function(d){
+			d = d > 360 ? 360 : d;
+			d = d < 0   ? 0   : d;
+			if(d < 180){
+				r.style['webkitTransform'] = 'rotate('+d+'deg)';
+				r.style['MozTransform'] = 'rotate('+d+'deg)';
+				r.style['oTransform'] = 'rotate('+d+'deg)';
+				r.style['transform'] = 'rotate('+d+'deg)';				
+				l.style['webkitTransform'] = 'rotate(0deg)';
+				l.style['MozTransform'] = 'rotate(0deg)';
+				l.style['oTransform'] = 'rotate(0deg)';
+				l.style['transform'] = 'rotate(0deg)';
+			}else{
+				r.style['webkitTransform'] = 'rotate(180deg)';
+				r.style['MozTransform'] = 'rotate(180deg)';
+				r.style['oTransform'] = 'rotate(180deg)';
+				r.style['transform'] = 'rotate(180deg)';
+				l.style['webkitTransform'] = 'rotate('+(d-180)+'deg)';
+				l.style['MozTransform'] = 'rotate('+(d-180)+'deg)';
+				l.style['oTransform'] = 'rotate('+(d-180)+'deg)';
+				l.style['transform'] = 'rotate('+(d-180)+'deg)';
+			}
+		};
+		i.addEventListener('change',function(){set(i.value)},false);
+		set(i.value);
+	</script>
+
+</body></html>
